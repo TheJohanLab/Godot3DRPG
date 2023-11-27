@@ -17,7 +17,13 @@ var vel: Vector3 = Vector3()
 
 @onready var camera = get_node("CameraOrbit")
 @onready var attackRayCast = get_node("AttackRayCast")
+@onready var swordAnim = get_node("WeaponHolder/SwordAnimator")
 
+func _process(delta):
+	if Input.is_action_just_pressed("attack"):
+		tryAttack()
+		
+	
 #called every physics step (60 times a seconde)
 func _physics_process(delta):
 	
@@ -48,7 +54,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and is_on_floor():
 		vel.y = jumpForce
 		
-		
 	#move along the current veolcity
 	velocity = vel
 	move_and_slide()
@@ -61,5 +66,17 @@ func takeDamage( damageToTake):
 	if currHp <= 0:
 		die()
 		
+func tryAttack():
+	if Time.get_ticks_msec() - lastAttackTime < attackRate * 1000:
+		return
+		
+	lastAttackTime = Time.get_ticks_msec()
+	swordAnim.stop()
+	swordAnim.play("attack")
+	
+	if attackRayCast.is_colliding():
+		if attackRayCast.get_collider().has_method("takeDamage"):
+			attackRayCast.get_collider().takeDamage(damage)
+	
 func die():
 	get_tree().reload_current_scene()
