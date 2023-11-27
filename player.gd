@@ -38,7 +38,7 @@ func _physics_process(delta):
 	# normalize the input vector to prevent increased diagonally
 	input = input.normalized()
 	# get the relative direction
-	var dir = ( transform.basis.x * input.z + transform.basis.x * input.x)
+	var dir = ( transform.basis.z * input.z + transform.basis.x * input.x)
 	
 	vel.x = dir.x * moveSpeed
 	vel.z = dir.z * moveSpeed
@@ -52,3 +52,7 @@ func _physics_process(delta):
 	#move along the current veolcity
 	velocity = vel
 	move_and_slide()
+
+
+func give_gold(amount):
+	gold += amount

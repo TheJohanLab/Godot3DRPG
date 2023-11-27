@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://denp13hrpvm67"]
+[gd_scene load_steps=28 format=3 uid="uid://denp13hrpvm67"]
 
 [ext_resource type="ArrayMesh" uid="uid://bs714alscy42h" path="res://Assets/Models/Environment/naturePack_001.obj" id="1_03t35"]
 [ext_resource type="ArrayMesh" uid="uid://bee3kmcf1qynk" path="res://Assets/Models/Environment/naturePack_019.obj" id="2_0w3m6"]
@@ -8,6 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d2nbf1iajbiq3" path="res://Assets/Models/Environment/naturePack_066.obj" id="6_iv4i0"]
 [ext_resource type="Shader" path="res://skyShader.gdshader" id="7_cafvc"]
 [ext_resource type="PackedScene" uid="uid://dhqlkkqai6lw4" path="res://player.tscn" id="8_qtub0"]
+[ext_resource type="PackedScene" uid="uid://bbh0pm3ce11eu" path="res://gold_coin.tscn" id="9_c4fgm"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_454yf"]
 data = PackedVector3Array(0, 0, 0, 3, 0.3, 0, 3, 0, 0, 3, 0.3, 0, 0, 0, 0, 0, 0.3, 0, 0, 0.3, -3, 3, 0.3, 0, 0, 0.3, 0, 3, 0.3, 0, 0, 0.3, -3, 3, 0.3, -3, 3, 0, -3, 3, 0.3, 0, 3, 0.3, -3, 3, 0.3, 0, 3, 0, -3, 3, 0, 0, 3, 0, -3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, -3, 0, 0, -3, 0, 0.3, -3, 0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0.3, -3, 0, 0.3, 0, 3, 0, -3, 0, 0.3, -3, 0, 0, -3, 0, 0.3, -3, 3, 0, -3, 3, 0.3, -3)
@@ -240,3 +241,18 @@ environment = SubResource("Environment_pem4k")
 
 [node name="Player" parent="." instance=ExtResource("8_qtub0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 0)
+
+[node name="GoldCoin" parent="." instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63161, 3.78591, 6.13461)
+
+[node name="GoldCoin3" parent="." instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.59002, 6.28739, -8.05761)
+
+[node name="GoldCoin4" parent="." instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3284, 6.28219, 11.0061)
+
+[node name="GoldCoin5" parent="." instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7546, 1.93404, -2.07988)
+
+[node name="GoldCoin2" parent="." instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84847, 0.802349, -0.112022)
