@@ -11,6 +11,6 @@ func _process(delta):
 func _on_body_entered(body):
 
 	if body.name == "Player":
-		body.give_gold(goldToGive)
+		body.giveGold(goldToGive)
 		#Delete the node from the scene
 		queue_free()

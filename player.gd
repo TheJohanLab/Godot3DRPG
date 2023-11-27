@@ -52,7 +52,14 @@ func _physics_process(delta):
 	#move along the current veolcity
 	velocity = vel
 	move_and_slide()
-
-
-func give_gold(amount):
+		
+func giveGold(amount):
 	gold += amount
+
+func takeDamage( damageToTake):
+	currHp -= damageToTake
+	if currHp <= 0:
+		die()
+		
+func die():
+	get_tree().reload_current_scene()
