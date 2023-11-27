@@ -18,7 +18,13 @@ var vel: Vector3 = Vector3()
 @onready var camera = get_node("CameraOrbit")
 @onready var attackRayCast = get_node("AttackRayCast")
 @onready var swordAnim = get_node("WeaponHolder/SwordAnimator")
+@onready var ui = get_node("/root/MainScene/CanvasLayer/UI")
 
+
+func _ready():
+	ui.updateHealthBar(currHp, maxHp)
+	ui.updateGoldText(gold)
+	
 func _process(delta):
 	if Input.is_action_just_pressed("attack"):
 		tryAttack()
@@ -60,9 +66,12 @@ func _physics_process(delta):
 		
 func giveGold(amount):
 	gold += amount
+	ui.updateGoldText(gold)
 
 func takeDamage( damageToTake):
 	currHp -= damageToTake
+	ui.updateHealthBar(currHp, maxHp)
+	
 	if currHp <= 0:
 		die()
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://denp13hrpvm67"]
+[gd_scene load_steps=30 format=3 uid="uid://denp13hrpvm67"]
 
 [ext_resource type="ArrayMesh" uid="uid://bs714alscy42h" path="res://Assets/Models/Environment/naturePack_001.obj" id="1_03t35"]
 [ext_resource type="ArrayMesh" uid="uid://bee3kmcf1qynk" path="res://Assets/Models/Environment/naturePack_019.obj" id="2_0w3m6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dhqlkkqai6lw4" path="res://player.tscn" id="8_qtub0"]
 [ext_resource type="PackedScene" uid="uid://bbh0pm3ce11eu" path="res://gold_coin.tscn" id="9_c4fgm"]
 [ext_resource type="PackedScene" uid="uid://c8ksp1s2mfnr2" path="res://enemy.tscn" id="10_e7waf"]
+[ext_resource type="PackedScene" uid="uid://cpgto6nhvxr6j" path="res://ui.tscn" id="11_lsa7t"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_454yf"]
 data = PackedVector3Array(0, 0, 0, 3, 0.3, 0, 3, 0, 0, 3, 0.3, 0, 0, 0, 0, 0, 0.3, 0, 0, 0.3, -3, 3, 0.3, 0, 0, 0.3, 0, 3, 0.3, 0, 0, 0.3, -3, 3, 0.3, -3, 3, 0, -3, 3, 0.3, 0, 3, 0.3, -3, 3, 0.3, 0, 3, 0, -3, 3, 0, 0, 3, 0, -3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, -3, 0, 0, -3, 0, 0.3, -3, 0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0.3, -3, 0, 0.3, 0, 3, 0, -3, 0, 0.3, -3, 0, 0, -3, 0, 0.3, -3, 3, 0, -3, 3, 0.3, -3)
@@ -70,6 +71,10 @@ ambient_light_source = 3
 ambient_light_color = Color(0, 0, 0.627451, 1)
 
 [node name="MainScene" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("11_lsa7t")]
 
 [node name="Models" type="Node" parent="."]
 
@@ -233,6 +238,23 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/NaturePack075/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7x6e6")
 
+[node name="Coins" type="Node" parent="."]
+
+[node name="GoldCoin" parent="Coins" instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63161, 3.78591, 6.13461)
+
+[node name="GoldCoin3" parent="Coins" instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.59002, 6.28739, -8.05761)
+
+[node name="GoldCoin4" parent="Coins" instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3284, 6.28219, 11.0061)
+
+[node name="GoldCoin5" parent="Coins" instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7546, 1.93404, -2.07988)
+
+[node name="GoldCoin2" parent="Coins" instance=ExtResource("9_c4fgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84847, 0.802349, -0.112022)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.422618, -0.742404, 0.519837, 0, 0.573576, 0.819152, -0.906308, -0.346189, 0.242404, 0, 10.8073, 0)
 shadow_enabled = true
@@ -242,21 +264,6 @@ environment = SubResource("Environment_pem4k")
 
 [node name="Player" parent="." instance=ExtResource("8_qtub0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 0)
-
-[node name="GoldCoin" parent="." instance=ExtResource("9_c4fgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63161, 3.78591, 6.13461)
-
-[node name="GoldCoin3" parent="." instance=ExtResource("9_c4fgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.59002, 6.28739, -8.05761)
-
-[node name="GoldCoin4" parent="." instance=ExtResource("9_c4fgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3284, 6.28219, 11.0061)
-
-[node name="GoldCoin5" parent="." instance=ExtResource("9_c4fgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7546, 1.93404, -2.07988)
-
-[node name="GoldCoin2" parent="." instance=ExtResource("9_c4fgm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.84847, 0.802349, -0.112022)
 
 [node name="Enemy" parent="." instance=ExtResource("10_e7waf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82539, 0.300049, -4.55307)

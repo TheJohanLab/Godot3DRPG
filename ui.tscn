@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpgto6nhvxr6j"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_ioevf"]
+[ext_resource type="Texture2D" uid="uid://bc5d4jhqg2c7q" path="res://Assets/UI/UI_WhiteSquare.png" id="1_lecs2"]
+[ext_resource type="FontFile" uid="uid://dhhf2g2lk554d" path="res://Assets/Font/Ubuntu-Regular.ttf" id="2_eym5k"]
+
+[sub_resource type="Theme" id="Theme_hug53"]
+default_font = ExtResource("2_eym5k")
+default_font_size = 30
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ioevf")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -581.0
+offset_right = 212.0
+offset_bottom = -551.0
+grow_vertical = 0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_lecs2")
+texture_progress = ExtResource("1_lecs2")
+tint_under = Color(0.486275, 0.486275, 0.486275, 1)
+tint_progress = Color(0.768627, 0.0823529, 0.168627, 1)
+
+[node name="GoldText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -623.0
+offset_right = 52.0
+offset_bottom = -600.0
+theme = SubResource("Theme_hug53")
+text = "Gold : 500"
